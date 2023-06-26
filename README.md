@@ -1,57 +1,130 @@
 ## pizza-restaurants
-pizza-restaurants is a Rails API backend for tracking pizza restaurants. It provides endpoints to manage restaurants, pizzas, and the associations between them.
+pizza-restaurants is a Rails API backend designed to help you track pizza restaurants. It provides endpoints to manage restaurants, pizzas, and the associations between them.
 
-### Introduction
-pizza-restaurants is designed to help you build an API for managing pizza restaurants. It allows you to create, read, update, and delete restaurants and pizzas, as well as manage the associations between them.
+### Introduction  
+pizza-restaurants is a powerful API that allows you to create, read, update, and delete pizza restaurants and their associated pizzas. With this app, you can effortlessly manage your favorite pizza spots and the delicious pizzas they offer.
 
-### Requirements
-To meet the project requirements, pizza-restaurants must adhere to the following guidelines:
+### Features
+- Create, read, update, and delete restaurants
+- Create, read, update, and delete pizzas
+- Establish associations between restaurants and pizzas
+- Retrieve detailed information about restaurants and their associated pizzas
+- Validate the price of a pizza at a restaurant to be between 1 and 30
+- Seed data for quick testing and demonstration
+- Getting Started  
 
-Create a Rails API backend.
-Have at least three resources represented by three database tables.
-Project Setup
-To set up the pizza-restaurants project, follow these steps:   
+To get started with pizza-restaurants, follow the steps below:
 
-* Models
-The pizza-restaurants app requires the following relationships between models:
+* Clone the repository:  
+git clone https://github.com/brianrono/pizza-restaurants
 
-A Restaurant has many Pizzas through RestaurantPizza.
-A Pizza has many Restaurants through RestaurantPizza.
-A RestaurantPizza belongs to a Restaurant and belongs to a Pizza.  
-### Validations
-The RestaurantPizza model in pizza-restaurants must have a price between 1 and 30. Ensure that you add the appropriate validation to enforce this constraint.
+* Install the required dependencies:  
+bundle install  
+* Set up the database by running the migrations:  
+rails db:migrate  
 
-* Routes
-pizza-restaurants provides the following routes to interact with the API:
+* Populate the database with sample data:  
+rails db:seed  
 
-* GET /restaurants
-Returns a list of all restaurants in JSON format.
+* Start the Rails server:  
+rails server  
 
-* GET /restaurants/:id
-Returns the details of a specific restaurant in JSON format, including the associated pizzas.
+Once the server is up and running, you can start making API requests to manage pizza restaurants.
 
-* DELETE /restaurants/:id
-Deletes a specific restaurant from the database, along with any associated RestaurantPizza records.
+- API Endpoints  
+The following API endpoints are available in pizza-restaurants:
 
-* GET /pizzas
-Returns a list of all pizzas in JSON format.
+- GET /restaurants  
+Retrieves a list of all restaurants.
 
-* GET /pizzas/:id
-Returns a specific pizza in JSON format.
+Response Format:  
 
-* POST /restaurant_pizzas
-Creates a new RestaurantPizza record associated with an existing Pizza and Restaurant.
+[
+  {
+    "id": 1,
+    "name": "Sottocasa NYC",
+    "address": "298 Atlantic Ave, Brooklyn, NY 11201"
+  },
+  {
+    "id": 2,
+    "name": "PizzArte",
+    "address": "69 W 55th St, New York, NY 10019"
+  }
+]
+- GET /restaurants/:id  
+Retrieves detailed information about a specific restaurant, including its associated pizzas.  
 
-Ensure that the routes return the appropriate HTTP status codes along with the JSON data.
+Response Format:  
+{
+  "id": 1,
+  "name": "Sottocasa NYC",
+  "address": "298 Atlantic Ave, Brooklyn, NY 11201",
+  "pizzas": [
+    {
+      "id": 1,
+      "name": "Cheese",
+      "ingredients": "Dough, Tomato Sauce, Cheese"
+    },
+    {
+      "id": 2,
+      "name": "Pepperoni",
+      "ingredients": "Dough, Tomato Sauce, Cheese, Pepperoni"
+    }
+  ]
+}
+- DELETE /restaurants/:id  
+Deletes a specific restaurant from the database, along with any associated pizzas.
 
-* Seed Data
-To test the application, you can generate seed data with the following command:
+- GET /pizzas  
+Retrieves a list of all pizzas.
 
-- rails db:seed  
-This will populate the database with sample restaurants, pizzas, and their associations.
+Response Format:
+[
+  {
+    "id": 1,
+    "name": "Cheese",
+    "ingredients": "Dough, Tomato Sauce, Cheese"
+  },
+  {
+    "id": 2,
+    "name": "Pepperoni",
+    "ingredients": "Dough, Tomato Sauce, Cheese, Pepperoni"
+  }
+]
+- GET /pizzas/:id  
+Retrieves detailed information about a specific pizza.
 
+Response Format:
+{
+  "id": 1,
+  "name": "Cheese",
+  "ingredients": "Dough, Tomato Sauce, Cheese"
+}
+- POST /restaurant_pizzas  
+Creates a new association between a pizza and a restaurant.
+
+Request Format:
+
+{
+  "price": 5,
+  "pizza_id": 1,
+  "restaurant_id": 3
+}
+Response Format:
+
+{
+  "id": 1,
+  "name": "Cheese",
+  "ingredients": "Dough, Tomato Sauce, Cheese"
+}
+- Error Handling  
+In case of errors, the API will return appropriate status codes along with JSON error messages to help you identify and resolve the issues.
+
+** 404 Not Found: ** Returned when a requested resource is not found.
+** 422 Unprocessable Entity: ** Returned when there are validation errors in the request.
+** 500 Internal Server Error: ** Returned when an unexpected server error occurs.
 ### Conclusion
-This concludes the README for the pizzas-restaurants app. You can now start building your API and managing pizza restaurants. Enjoy the process!
+pizza-restaurants provides a reliable and easy-to-use API for managing pizza restaurants. With its powerful features and intuitive endpoints, you can effortlessly organize your favorite pizza spots and the pizzas they offer. Get started with pizza-restaurants today and enjoy tracking and exploring the delicious world of pizza!
 
 ### Licensing
 Check the licensing file.  

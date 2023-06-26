@@ -1,28 +1,28 @@
-## pizzas-restaurants
-pizzas-restaurants is a Rails API backend for tracking pizza restaurants. It provides endpoints to manage restaurants, pizzas, and the associations between them.
+## pizza-restaurants
+pizza-restaurants is a Rails API backend for tracking pizza restaurants. It provides endpoints to manage restaurants, pizzas, and the associations between them.
 
 ### Introduction
-pizzas-restaurants is designed to help you build an API for managing pizza restaurants. It allows you to create, read, update, and delete restaurants and pizzas, as well as manage the associations between them.
+pizza-restaurants is designed to help you build an API for managing pizza restaurants. It allows you to create, read, update, and delete restaurants and pizzas, as well as manage the associations between them.
 
 ### Requirements
-To meet the project requirements, pizzas-restaurants must adhere to the following guidelines:
+To meet the project requirements, pizza-restaurants must adhere to the following guidelines:
 
 Create a Rails API backend.
 Have at least three resources represented by three database tables.
 Project Setup
-To set up the pizzas-restaurants project, follow these steps:   
+To set up the pizza-restaurants project, follow these steps:   
 
 * Models
-The pizzas-restaurants app requires the following relationships between models:
+The pizza-restaurants app requires the following relationships between models:
 
 A Restaurant has many Pizzas through RestaurantPizza.
 A Pizza has many Restaurants through RestaurantPizza.
 A RestaurantPizza belongs to a Restaurant and belongs to a Pizza.  
 ### Validations
-The RestaurantPizza model in pizzas-restaurants must have a price between 1 and 30. Ensure that you add the appropriate validation to enforce this constraint.
+The RestaurantPizza model in pizza-restaurants must have a price between 1 and 30. Ensure that you add the appropriate validation to enforce this constraint.
 
 * Routes
-pizzas-restaurants provides the following routes to interact with the API:
+pizza-restaurants provides the following routes to interact with the API:
 
 * GET /restaurants
 Returns a list of all restaurants in JSON format.
@@ -35,6 +35,9 @@ Deletes a specific restaurant from the database, along with any associated Resta
 
 * GET /pizzas
 Returns a list of all pizzas in JSON format.
+
+* GET /pizzas/:id
+Returns a specific pizza in JSON format.
 
 * POST /restaurant_pizzas
 Creates a new RestaurantPizza record associated with an existing Pizza and Restaurant.

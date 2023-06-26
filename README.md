@@ -39,90 +39,90 @@ Retrieves a list of all restaurants.
 
 Response Format:  
 
-[
-  {
-    "id": 1,
-    "name": "Sottocasa NYC",
-    "address": "298 Atlantic Ave, Brooklyn, NY 11201"
-  },
-  {
-    "id": 2,
-    "name": "PizzArte",
-    "address": "69 W 55th St, New York, NY 10019"
-  }
-]
+[  
+  {  
+    "id": 1,  
+    "name": "Sottocasa NYC",  
+    "address": "298 Atlantic Ave, Brooklyn, NY 11201"  
+  },  
+  {  
+    "id": 2,  
+    "name": "PizzArte",  
+    "address": "69 W 55th St, New York, NY 10019"  
+  }  
+]  
 - GET /restaurants/:id  
 Retrieves detailed information about a specific restaurant, including its associated pizzas.  
 
 Response Format:  
-{
-  "id": 1,
-  "name": "Sottocasa NYC",
-  "address": "298 Atlantic Ave, Brooklyn, NY 11201",
-  "pizzas": [
-    {
-      "id": 1,
-      "name": "Cheese",
-      "ingredients": "Dough, Tomato Sauce, Cheese"
-    },
-    {
-      "id": 2,
-      "name": "Pepperoni",
-      "ingredients": "Dough, Tomato Sauce, Cheese, Pepperoni"
-    }
-  ]
-}
+{  
+  "id": 1,  
+  "name": "Sottocasa NYC",  
+  "address": "298 Atlantic Ave, Brooklyn, NY 11201",  
+  "pizzas": [  
+    {  
+      "id": 1,  
+      "name": "Cheese",  
+      "ingredients": "Dough, Tomato Sauce, Cheese"  
+    },  
+    {  
+      "id": 2,  
+      "name": "Pepperoni",  
+      "ingredients": "Dough, Tomato Sauce, Cheese, Pepperoni"  
+    }  
+  ]  
+}  
 - DELETE /restaurants/:id  
-Deletes a specific restaurant from the database, along with any associated pizzas.
+Deletes a specific restaurant from the database, along with any associated pizzas.  
 
 - GET /pizzas  
-Retrieves a list of all pizzas.
+Retrieves a list of all pizzas.  
 
-Response Format:
-[
-  {
-    "id": 1,
-    "name": "Cheese",
-    "ingredients": "Dough, Tomato Sauce, Cheese"
-  },
-  {
-    "id": 2,
-    "name": "Pepperoni",
-    "ingredients": "Dough, Tomato Sauce, Cheese, Pepperoni"
-  }
-]
+Response Format:  
+[  
+  {  
+    "id": 1,  
+    "name": "Cheese",  
+    "ingredients": "Dough, Tomato Sauce, Cheese"  
+  },  
+  {  
+    "id": 2,  
+    "name": "Pepperoni",  
+    "ingredients": "Dough, Tomato Sauce, Cheese, Pepperoni"  
+  }  
+]  
 - GET /pizzas/:id  
 Retrieves detailed information about a specific pizza.
 
-Response Format:
-{
-  "id": 1,
-  "name": "Cheese",
-  "ingredients": "Dough, Tomato Sauce, Cheese"
-}
+Response Format:  
+{  
+  "id": 1,  
+  "name": "Cheese",  
+  "ingredients": "Dough, Tomato Sauce, Cheese"  
+}  
 - POST /restaurant_pizzas  
 Creates a new association between a pizza and a restaurant.
 
-Request Format:
+Request Format:  
 
-{
-  "price": 5,
-  "pizza_id": 1,
-  "restaurant_id": 3
-}
-Response Format:
+{  
+  "price": 5,  
+  "pizza_id": 1,  
+  "restaurant_id": 3  
+}  
+Response Format:  
 
-{
-  "id": 1,
-  "name": "Cheese",
-  "ingredients": "Dough, Tomato Sauce, Cheese"
-}
+{  
+  "id": 1,  
+  "name": "Cheese",  
+  "ingredients": "Dough, Tomato Sauce, Cheese"  
+}  
 - Error Handling  
 In case of errors, the API will return appropriate status codes along with JSON error messages to help you identify and resolve the issues.
 
-** 404 Not Found: ** Returned when a requested resource is not found.
-** 422 Unprocessable Entity: ** Returned when there are validation errors in the request.
-** 500 Internal Server Error: ** Returned when an unexpected server error occurs.
+404 Not Found: Returned when a requested resource is not found.
+422 Unprocessable Entity: Returned when there are validation errors in the request.
+500 Internal Server Error: Returned when an unexpected server error occurs.
 ### Conclusion
 pizza-restaurants provides a reliable and easy-to-use API for managing pizza restaurants. With its powerful features and intuitive endpoints, you can effortlessly organize your favorite pizza spots and the pizzas they offer. Get started with pizza-restaurants today and enjoy tracking and exploring the delicious world of pizza!
 
